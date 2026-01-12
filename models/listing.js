@@ -1,20 +1,24 @@
 const mongoose = require("mongoose");
 const Schema= mongoose.Schema;
 
-const listingSchema = new Schema({
-    title: {
-        type: String,
-        required: true,
+const listingSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  price: Number,
+  location: String,
+  country: String,
+
+  image: {
+    filename: {
+      type: String,
+      default: "listingimage"
     },
-    description: String,
-    image: {
-        type: String,
-        default: "https://unsplash.com/photos/snow-covered-mountains-under-a-pink-sky-gH2wZOYK-KQ",
-        set: (v) => v === ""? "https://unsplash.com/photos/snow-covered-mountains-under-a-pink-sky-gH2wZOYK-KQ" : v,
-    },    
-    price: Number,
-    location: String,
-    country: String,
+    url: {
+      type: String,
+      default:
+        "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&w=800&q=60"
+    }
+  }
 });
 
 module.exports = mongoose.model("Listing", listingSchema);
