@@ -40,6 +40,16 @@ app.get("/listings/:id", async(req, res) =>{
     res.render("listings/show.ejs", {listing});
 });
 
+//create route
+app.post("/listings", async (req, res)=> {
+    // let {title, description, price, location, country} = req.body;
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    res.redirect("/listings");
+    //
+    console.log(listing);
+});
+
 // app.get("/testListing", async (req, res) =>{
 //     let sampleListing = new Listing({
 //         title: "My new villa",
