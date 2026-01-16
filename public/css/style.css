@@ -1,6 +1,6 @@
-/* body {
-    background-color: pink;
-} */
+body {
+    font-family: "plus jakarta sans", sans-serif !important;
+} 
 
 .navbar {
     height: 5rem;
@@ -56,5 +56,24 @@
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
+}
 
+.card-body {
+    padding: 0 !important;
+}
+.card-title {
+    font-weight: 400 !important;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
 }
