@@ -42,7 +42,7 @@ const validateListing = (req, res, next) =>{
 
 // index routes
 app.get("/listings", wrapAsync(async(req, res)=>{
-    // const allListings = await Listing.find({});
+    const allListings = await Listing.find({});
     res.render("listings/index.ejs", {allListings});
 }));
 
