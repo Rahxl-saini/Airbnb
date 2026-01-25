@@ -86,19 +86,19 @@ app.delete("/listings/:id", wrapAsync(async(req, res) =>{
     res.redirect("/listings");
 }));
 
-app.get("/testListing", async (req, res) => {
-    let sampleListing = new Listing({
-        title: "My Home",
-        description: "By the beach",
-        price: 1200,
-        location: "Calangute, Goa",
-        country: "India"
-    });
+// app.get("/testListing", async (req, res) => {
+//     let sampleListing = new Listing({
+//         title: "My Home",
+//         description: "By the beach",
+//         price: 1200,
+//         location: "Calangute, Goa",
+//         country: "India"
+//     });
 
-    await sampleListing.save();
-    console.log("Sample was saved");
-    res.send("Successfull Testing");
-});
+//     await sampleListing.save();
+//     console.log("Sample was saved");
+//     res.send("Successfull Testing");
+// });
 
 app.use((req, res) => {
     res.status(404).send("404 Page Not Found");
@@ -116,6 +116,6 @@ app.listen(8080, () => {
 });
 
 
-// app.use("*", (req, res, next) =>{
-//     next(new ExpressError(404, "Page Not Found"));
-// });
+app.use("*", (req, res, next) =>{
+    next(new ExpressError(404, "Page Not Found"));
+});
