@@ -116,6 +116,6 @@ app.listen(8080, () => {
 });
 
 
-// app.use("*", (req, res, next) =>{
-//     next(new ExpressError(404, "Page Not Found"));
-// });
+app.use("*", (req, res, next) =>{
+    next(new ExpressError(404, "Page Not Found"));
+});
